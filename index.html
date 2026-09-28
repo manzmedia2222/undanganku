@@ -37,7 +37,7 @@
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     z-index: 1000;
-    transition: all 0.3s;
+    transition: box-shadow 0.3s;
   }
   nav.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
   .nav-inner {
@@ -67,7 +67,7 @@
   .nav-links a:hover { color: var(--primary); }
   .btn {
     display: inline-block; padding: 12px 28px; border-radius: 12px;
-    font-weight: 600; text-decoration: none; transition: all 0.25s;
+    font-weight: 600; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
     border: none; cursor: pointer; font-size: 0.95rem;
     font-family: inherit;
   }
@@ -134,7 +134,7 @@
   .stat h3 { font-size: 1.8rem; font-weight: 800; color: var(--dark); }
   .stat p { font-size: 0.85rem; color: var(--gray); margin: 0; }
 
-  /* ===== HERO VISUAL - NEW PHONE DESIGN ===== */
+  /* ===== HERO VISUAL: PHONE (tanpa floating card, animasi minimal) ===== */
   .hero-visual {
     position: relative; display: flex; justify-content: center; align-items: center;
     min-height: 620px;
@@ -146,17 +146,12 @@
   }
   .phone-wrap:hover { transform: rotate(0deg) translateY(-8px); }
 
-  /* glow behind phone */
+  /* glow lembut - static, tanpa animasi */
   .phone-glow {
-    position: absolute; inset: -40px;
-    background: radial-gradient(circle at 50% 40%, rgba(139,92,246,0.35), transparent 60%),
-                radial-gradient(circle at 60% 70%, rgba(236,72,153,0.28), transparent 60%);
-    filter: blur(30px); z-index: 0;
-    animation: glowPulse 4s ease-in-out infinite;
-  }
-  @keyframes glowPulse {
-    0%,100% { opacity: 0.8; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.05); }
+    position: absolute; inset: -30px;
+    background: radial-gradient(circle at 50% 40%, rgba(139,92,246,0.3), transparent 60%),
+                radial-gradient(circle at 60% 70%, rgba(236,72,153,0.22), transparent 60%);
+    filter: blur(28px); z-index: 0;
   }
 
   /* Phone body */
@@ -172,12 +167,11 @@
       0 0 0 8px #0f0d20,
       0 0 0 9px #2a2550;
   }
-  /* Side buttons */
   .phone-mockup::before {
     content: ''; position: absolute; right: -3px; top: 130px;
     width: 3px; height: 60px; border-radius: 3px;
     background: linear-gradient(#3a3570, #1a1730);
-    box-shadow: 0 80px 0 #3a3570, 0 0 0 0 #3a3570;
+    box-shadow: 0 80px 0 #3a3570;
   }
   .phone-mockup::after {
     content: ''; position: absolute; left: -3px; top: 110px;
@@ -185,7 +179,6 @@
     background: linear-gradient(#3a3570, #1a1730);
     box-shadow: 0 55px 0 #3a3570, 0 110px 0 #3a3570;
   }
-  /* Dynamic island */
   .phone-notch {
     position: absolute; top: 22px; left: 50%;
     transform: translateX(-50%);
@@ -211,7 +204,6 @@
     padding: 55px 22px 30px;
     text-align: center;
   }
-  /* Decorative blobs */
   .screen-blob { position: absolute; border-radius: 50%; filter: blur(20px); opacity: 0.6; }
   .blob-1 { width: 120px; height: 120px; background: #fbcfe8; top: -30px; right: -20px; }
   .blob-2 { width: 100px; height: 100px; background: #c7d2fe; bottom: 60px; left: -30px; }
@@ -226,7 +218,6 @@
   }
   .screen-ornament {
     font-size: 1.5rem; margin-bottom: 6px;
-    filter: drop-shadow(0 4px 6px rgba(236,72,153,0.25));
   }
   .screen-label {
     font-size: 0.6rem; letter-spacing: 2px;
@@ -238,7 +229,6 @@
     font-size: 2.2rem; color: #1e1b4b;
     font-weight: 700; letter-spacing: -0.5px;
     line-height: 1;
-    text-shadow: 0 2px 6px rgba(30,27,75,0.08);
   }
   .amp {
     color: #ec4899; font-size: 1.4rem; font-style: italic;
@@ -281,7 +271,6 @@
     background: rgba(30,27,75,0.9); color: #fff;
     padding: 8px 6px; border-radius: 10px;
     min-width: 42px; text-align: center;
-    box-shadow: 0 4px 10px rgba(30,27,75,0.25);
   }
   .cd-item .n { font-size: 1rem; font-weight: 800; line-height: 1; }
   .cd-item .l { font-size: 0.5rem; opacity: 0.7; letter-spacing: 0.5px; margin-top: 2px; }
@@ -293,32 +282,6 @@
     letter-spacing: 0.5px;
     box-shadow: 0 10px 20px -5px rgba(236,72,153,0.5);
     display: flex; align-items: center; justify-content: center; gap: 8px;
-    animation: btnShine 3s ease-in-out infinite;
-  }
-  @keyframes btnShine {
-    0%,100% { box-shadow: 0 10px 20px -5px rgba(236,72,153,0.5); }
-    50% { box-shadow: 0 15px 30px -5px rgba(236,72,153,0.8); }
-  }
-
-  /* Floating cards */
-  .floating-card {
-    position: absolute; background: #fff; padding: 12px 16px;
-    border-radius: 16px; box-shadow: 0 15px 35px -10px rgba(30,27,75,0.25);
-    display: flex; align-items: center; gap: 10px; font-size: 0.82rem;
-    font-weight: 600; color: var(--dark); z-index: 4;
-    border: 1px solid rgba(255,255,255,0.8);
-  }
-  .floating-card .icon {
-    width: 34px; height: 34px; border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem; flex-shrink: 0;
-  }
-  .fc-1 { top: 40px; left: -40px; animation: float 3.5s ease-in-out infinite; }
-  .fc-2 { bottom: 120px; right: -50px; animation: float 3.5s ease-in-out infinite 1.5s; }
-  .fc-3 { bottom: 30px; left: -30px; animation: float 3.5s ease-in-out infinite 0.8s; }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-14px); }
   }
 
   /* ===== SECTIONS ===== */
@@ -341,7 +304,8 @@
   }
   .feature-card {
     background: #fff; border: 1px solid var(--border);
-    padding: 32px; border-radius: 20px; transition: all 0.3s;
+    padding: 32px; border-radius: 20px;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
   }
   .feature-card:hover {
     transform: translateY(-6px); box-shadow: 0 20px 40px rgba(139,92,246,0.12);
@@ -365,7 +329,7 @@
   .price-card {
     background: #fff; border-radius: 24px; padding: 40px 32px;
     border: 2px solid var(--border); position: relative;
-    transition: all 0.3s;
+    transition: transform 0.25s, box-shadow 0.25s;
   }
   .price-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px rgba(0,0,0,0.08); }
   .price-card.featured {
@@ -405,8 +369,8 @@
   .flow-card {
     text-align: center; padding: 32px 20px;
     background: #fff; border-radius: 20px;
-    border: 1px solid var(--border); position: relative;
-    transition: all 0.3s;
+    border: 1px solid var(--border);
+    transition: transform 0.25s, box-shadow 0.25s;
   }
   .flow-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(139,92,246,0.12); }
   .flow-num {
@@ -443,7 +407,7 @@
   .faq-item {
     background: #fff; border: 1px solid var(--border);
     border-radius: 16px; margin-bottom: 16px; overflow: hidden;
-    transition: all 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
   }
   .faq-item.open { border-color: var(--primary); box-shadow: 0 10px 30px rgba(139,92,246,0.1); }
   .faq-q {
@@ -455,7 +419,7 @@
     width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
     background: var(--light); color: var(--primary);
     display: flex; align-items: center; justify-content: center;
-    transition: transform 0.3s; font-size: 1rem;
+    transition: transform 0.3s, background 0.3s, color 0.3s; font-size: 1rem;
   }
   .faq-item.open .faq-q .icon { transform: rotate(45deg); background: var(--primary); color: #fff; }
   .faq-a {
@@ -513,12 +477,11 @@
     background: #25D366; color: #fff;
     display: flex; align-items: center; justify-content: center;
     font-size: 1.8rem; box-shadow: 0 10px 30px rgba(37,211,102,0.5);
-    text-decoration: none; transition: all 0.3s; cursor: pointer;
-    animation: float 3s ease-in-out infinite;
+    text-decoration: none; transition: transform 0.25s; cursor: pointer;
   }
-  .wa-float:hover { transform: scale(1.1); }
+  .wa-float:hover { transform: scale(1.08); }
 
-  /* ===== MODAL BREFING ===== */
+  /* ===== MODAL ===== */
   .modal-overlay {
     position: fixed; inset: 0; background: rgba(15,23,42,0.7);
     backdrop-filter: blur(4px); z-index: 2000;
@@ -530,10 +493,10 @@
     background: #fff; border-radius: 24px; max-width: 560px;
     width: 100%; padding: 36px; position: relative;
     max-height: 92vh; overflow-y: auto;
-    animation: modalIn 0.3s ease;
+    animation: modalIn 0.25s ease;
   }
   @keyframes modalIn {
-    from { opacity: 0; transform: translateY(30px) scale(0.96); }
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
     to { opacity: 1; transform: translateY(0) scale(1); }
   }
   .modal h3 { font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
@@ -546,7 +509,7 @@
   .form-group input, .form-group select, .form-group textarea {
     width: 100%; padding: 12px 16px; border: 1.5px solid var(--border);
     border-radius: 12px; font-size: 0.95rem; font-family: inherit;
-    transition: all 0.2s; background: #fff; color: var(--text);
+    transition: border-color 0.2s, box-shadow 0.2s; background: #fff; color: var(--text);
   }
   .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
     outline: none; border-color: var(--primary);
@@ -560,11 +523,11 @@
     background: var(--light); border: none; cursor: pointer;
     font-size: 1.2rem; color: var(--gray);
     display: flex; align-items: center; justify-content: center;
-    transition: all 0.2s;
+    transition: background 0.2s, color 0.2s;
   }
   .modal-close:hover { background: var(--danger); color: #fff; }
 
-  /* ===== ADMIN PANEL ===== */
+  /* ===== ADMIN ===== */
   .admin-bar {
     position: fixed; bottom: 0; left: 0; right: 0;
     background: var(--dark); color: #fff; z-index: 3000;
@@ -574,18 +537,15 @@
     font-size: 0.9rem;
   }
   .admin-bar.active { display: flex; }
-  .admin-bar .status {
-    display: flex; align-items: center; gap: 8px;
-  }
+  .admin-bar .status { display: flex; align-items: center; gap: 8px; }
   .admin-bar .status .dot {
     width: 10px; height: 10px; border-radius: 50%; background: var(--success);
-    animation: pulse 1.5s infinite;
   }
   .admin-bar .actions { display: flex; gap: 10px; flex-wrap: wrap; }
   .admin-btn {
     padding: 8px 16px; border-radius: 8px; border: none;
     cursor: pointer; font-size: 0.85rem; font-weight: 600;
-    font-family: inherit; transition: all 0.2s;
+    font-family: inherit; transition: background 0.2s;
   }
   .admin-btn.save { background: var(--success); color: #fff; }
   .admin-btn.save:hover { background: #059669; }
@@ -597,7 +557,7 @@
   .editable-active {
     outline: 2px dashed var(--primary);
     outline-offset: 3px; border-radius: 4px;
-    cursor: text; transition: all 0.2s;
+    cursor: text; transition: background 0.2s;
   }
   .editable-active:hover { background: rgba(139,92,246,0.06); }
   .editable-active:focus {
@@ -605,7 +565,7 @@
     background: rgba(139,92,246,0.08);
   }
 
-  /* ===== LOGIN ADMIN ===== */
+  /* ===== LOGIN ===== */
   .login-modal .modal { max-width: 420px; }
   .login-modal .lock-icon {
     width: 64px; height: 64px; border-radius: 20px;
@@ -652,9 +612,6 @@
       border-bottom: 1px solid var(--border);
     }
     .menu-toggle { display: block; }
-    .fc-1 { left: -10px; }
-    .fc-2 { right: -10px; }
-    .fc-3 { left: -10px; }
   }
   @media (max-width: 640px) {
     .hero { padding: 120px 0 60px; }
@@ -672,7 +629,6 @@
     .phone-mockup { width: 260px; height: 530px; }
     .couple { font-size: 1.9rem; }
     .hero-visual { min-height: 500px; }
-    .fc-3 { display: none; }
   }
 </style>
 </head>
@@ -730,7 +686,7 @@
       </div>
     </div>
 
-    <!-- ===== HERO VISUAL: NEW PHONE ===== -->
+    <!-- ===== HERO VISUAL: PHONE ===== -->
     <div class="hero-visual">
       <div class="phone-wrap">
         <div class="phone-glow"></div>
@@ -774,19 +730,6 @@
               <div class="btn-invite" data-editable="mockBtn">💌 Buka Undangan</div>
             </div>
           </div>
-        </div>
-
-        <div class="floating-card fc-1">
-          <div class="icon" style="background:rgba(16,185,129,0.15);color:#10b981">✓</div>
-          <span>Revisi Friendly</span>
-        </div>
-        <div class="floating-card fc-2">
-          <div class="icon" style="background:rgba(139,92,246,0.15);color:#8b5cf6">⚡</div>
-          <span>Proses Cepat</span>
-        </div>
-        <div class="floating-card fc-3">
-          <div class="icon" style="background:rgba(236,72,153,0.15);color:#ec4899">💎</div>
-          <span>Desain Premium</span>
         </div>
       </div>
     </div>
@@ -1215,25 +1158,24 @@
   }
 
   // Ambil nomor WA bersih dari elemen footerWa
+  // "082254388144" -> "6282254388144"
   function getWANumber() {
     const el = document.querySelector('[data-editable="footerWa"]');
     if (!el) return '6282254388144';
     let raw = el.textContent.replace(/[^\d]/g, '');
-    // jika mulai dengan 0, ganti jadi 62
+    if (!raw) return '6282254388144';
     if (raw.startsWith('0')) raw = '62' + raw.slice(1);
-    if (raw.startsWith('8')) raw = '62' + raw;
-    return raw || '6282254388144';
+    else if (raw.startsWith('8')) raw = '62' + raw;
+    return raw;
   }
 
   // ============================================
-  // EVENT DELEGATION - Supaya navbar tetap bisa diklik
-  // walau ada contenteditable
+  // EVENT DELEGATION (navbar & tombol tetap bisa diklik)
   // ============================================
   document.addEventListener('click', (e) => {
-    // Skip kalau sedang admin mode & target adalah editable
+    // Kalau admin mode & target editable → biarkan edit, jangan trigger action
     const editable = e.target.closest('[data-editable]');
-    if (editable && adminMode && (editable.isContentEditable || editable.getAttribute('contenteditable') === 'true')) {
-      // Klik di editable hanya untuk edit, tidak trigger action
+    if (editable && adminMode && editable.isContentEditable) {
       return;
     }
 
@@ -1250,17 +1192,11 @@
     if (action) {
       e.preventDefault();
       const act = action.getAttribute('data-action');
-      if (act === 'briefing') {
-        openBriefing(action.getAttribute('data-paket') || '');
-      } else if (act === 'faq') {
-        toggleFaq(action);
-      } else if (act === 'menu') {
-        toggleMenu();
-      } else if (act === 'close-briefing') {
-        closeBriefing();
-      } else if (act === 'close-login') {
-        closeLogin();
-      }
+      if (act === 'briefing') openBriefing(action.getAttribute('data-paket') || '');
+      else if (act === 'faq') toggleFaq(action);
+      else if (act === 'menu') toggleMenu();
+      else if (act === 'close-briefing') closeBriefing();
+      else if (act === 'close-login') closeLogin();
       return;
     }
 
@@ -1269,7 +1205,6 @@
     if (waLink && !adminMode) {
       e.preventDefault();
       openBriefing();
-      return;
     }
   });
 
@@ -1278,7 +1213,7 @@
   // ============================================
   window.addEventListener('scroll', () => {
     document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 20);
-  });
+  }, { passive: true });
 
   // ============================================
   // BREFING
@@ -1379,19 +1314,18 @@
   // SAVE / RESET / EXIT
   // ============================================
   document.getElementById('btnSave').addEventListener('click', async () => {
-    // Collect semua editable
     document.querySelectorAll('[data-editable]').forEach(el => {
       currentContent[el.getAttribute('data-editable')] = el.textContent.trim();
     });
 
-    // 1) Simpan ke localStorage dulu (biar tidak hilang saat refresh)
+    // Simpan ke localStorage
     try {
       localStorage.setItem(LOCAL_KEY, JSON.stringify(currentContent));
     } catch (e) {
       console.warn('localStorage save failed', e);
     }
 
-    // 2) Coba simpan ke Firestore
+    // Coba simpan ke Firestore
     let firestoreOK = false;
     try {
       await setDoc(CONTENT_DOC, currentContent, { merge: true });
@@ -1407,7 +1341,7 @@
     if (firestoreOK) {
       showToast('✅ Tersimpan ke server! Pengunjung lain akan melihat perubahan.', 'success');
     } else {
-      showToast('⚠ Tersimpan lokal. Firestore gagal (cek rules). Cek console.', 'error');
+      showToast('⚠ Tersimpan lokal. Firestore gagal (cek rules).', 'error');
     }
   });
 
@@ -1420,7 +1354,6 @@
         currentContent = { ...snap.data() };
         savedContent = { ...snap.data() };
       } else {
-        // fallback ke localStorage
         const local = localStorage.getItem(LOCAL_KEY);
         if (local) {
           const data = JSON.parse(local);
@@ -1553,7 +1486,6 @@
 
 <!-- Fallback non-module -->
 <script>
-  // Fallback minimal jika module script gagal load (offline dsb)
   if (!document.getElementById('year').textContent) {
     document.getElementById('year').textContent = new Date().getFullYear();
   }
