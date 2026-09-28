@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Digital Premium - Jasa Pembuatan Undangan Online</title>
+<meta name="description" content="Jasa pembuatan undangan digital profesional, elegan, dan modern. Harga terjangkau mulai Rp 25.000.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --primary: #8b5cf6;
+    --primary-dark: #7c3aed;
+    --secondary: #ec4899;
+    --dark: #1e1b4b;
+    --light: #f8f7ff;
+    --text: #334155;
+    --gray: #64748b;
+    --border: #e2e8f0;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    background: #fff;
+    overflow-x: hidden;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    transition: all 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+  .nav-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 0;
+  }
+  .logo {
+    font-size: 1.5rem; font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .logo-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 1.1rem;
+    -webkit-text-fill-color: #fff;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+  .nav-links a {
+    color: var(--text); text-decoration: none; font-weight: 500;
+    font-size: 0.95rem; transition: color 0.2s; cursor: pointer;
+    padding: 4px 0;
+  }
+  .nav-links a:hover { color: var(--primary); }
+  .btn {
+    display: inline-block; padding: 12px 28px; border-radius: 12px;
+    font-weight: 600; text-decoration: none; transition: all 0.25s;
+    border: none; cursor: pointer; font-size: 0.95rem;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff; box-shadow: 0 4px 15px rgba(139,92,246,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(139,92,246,0.5); }
+  .btn-outline {
+    background: transparent; color: var(--primary);
+    border: 2px solid var(--primary);
+  }
+  .btn-outline:hover { background: var(--primary); color: #fff; }
+  .btn-white { background: #fff; color: var(--primary); }
+  .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--dark); }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, #f8f7ff 0%, #fdf2f8 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(139,92,246,0.15), transparent 70%);
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: -150px; left: -100px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(236,72,153,0.12), transparent 70%);
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(139,92,246,0.1); color: var(--primary-dark);
+    padding: 8px 16px; border-radius: 50px; font-size: 0.85rem;
+    font-weight: 600; margin-bottom: 24px;
+    border: 1px solid rgba(139,92,246,0.2);
+  }
+  .badge-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--success);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+  .hero h1 {
+    font-size: 3rem; line-height: 1.15; font-weight: 800;
+    color: var(--dark); margin-bottom: 24px; letter-spacing: -0.02em;
+  }
+  .hero h1 span {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p { font-size: 1.1rem; color: var(--gray); margin-bottom: 32px; max-width: 500px; }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+  .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+  .stat h3 { font-size: 1.8rem; font-weight: 800; color: var(--dark); }
+  .stat p { font-size: 0.85rem; color: var(--gray); margin: 0; }
+
+  /* ===== HERO VISUAL - NEW PHONE DESIGN ===== */
+  .hero-visual {
+    position: relative; display: flex; justify-content: center; align-items: center;
+    min-height: 620px;
+  }
+  .phone-wrap {
+    position: relative;
+    transform: rotate(-3deg);
+    transition: transform 0.5s ease;
+  }
+  .phone-wrap:hover { transform: rotate(0deg) translateY(-8px); }
+
+  /* glow behind phone */
+  .phone-glow {
+    position: absolute; inset: -40px;
+    background: radial-gradient(circle at 50% 40%, rgba(139,92,246,0.35), transparent 60%),
+                radial-gradient(circle at 60% 70%, rgba(236,72,153,0.28), transparent 60%);
+    filter: blur(30px); z-index: 0;
+    animation: glowPulse 4s ease-in-out infinite;
+  }
+  @keyframes glowPulse {
+    0%,100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+
+  /* Phone body */
+  .phone-mockup {
+    position: relative; z-index: 2;
+    width: 300px; height: 610px;
+    background: linear-gradient(145deg, #2a2550, #1a1730);
+    border-radius: 46px;
+    padding: 10px;
+    box-shadow:
+      0 40px 80px -20px rgba(30,27,75,0.45),
+      0 0 0 2px rgba(255,255,255,0.06) inset,
+      0 0 0 8px #0f0d20,
+      0 0 0 9px #2a2550;
+  }
+  /* Side buttons */
+  .phone-mockup::before {
+    content: ''; position: absolute; right: -3px; top: 130px;
+    width: 3px; height: 60px; border-radius: 3px;
+    background: linear-gradient(#3a3570, #1a1730);
+    box-shadow: 0 80px 0 #3a3570, 0 0 0 0 #3a3570;
+  }
+  .phone-mockup::after {
+    content: ''; position: absolute; left: -3px; top: 110px;
+    width: 3px; height: 40px; border-radius: 3px;
+    background: linear-gradient(#3a3570, #1a1730);
+    box-shadow: 0 55px 0 #3a3570, 0 110px 0 #3a3570;
+  }
+  /* Dynamic island */
+  .phone-notch {
+    position: absolute; top: 22px; left: 50%;
+    transform: translateX(-50%);
+    width: 100px; height: 26px;
+    background: #0a0819; border-radius: 20px; z-index: 5;
+    display: flex; align-items: center; justify-content: flex-end;
+    padding-right: 10px;
+  }
+  .phone-notch::after {
+    content: ''; width: 8px; height: 8px; border-radius: 50%;
+    background: #1a1730; box-shadow: 0 0 0 1.5px #2a2550;
+  }
+
+  /* Screen */
+  .phone-screen {
+    width: 100%; height: 100%; border-radius: 38px; overflow: hidden;
+    position: relative;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(255,255,255,0.9), transparent 40%),
+      radial-gradient(circle at 80% 100%, rgba(254,205,211,0.7), transparent 50%),
+      linear-gradient(160deg, #fef3c7 0%, #fde4ee 45%, #e0e7ff 100%);
+    display: flex; flex-direction: column;
+    padding: 55px 22px 30px;
+    text-align: center;
+  }
+  /* Decorative blobs */
+  .screen-blob { position: absolute; border-radius: 50%; filter: blur(20px); opacity: 0.6; }
+  .blob-1 { width: 120px; height: 120px; background: #fbcfe8; top: -30px; right: -20px; }
+  .blob-2 { width: 100px; height: 100px; background: #c7d2fe; bottom: 60px; left: -30px; }
+  .blob-3 { width: 80px; height: 80px; background: #fde68a; bottom: -20px; right: 20px; }
+
+  .screen-content { position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%; }
+
+  .screen-top {
+    font-size: 0.6rem; letter-spacing: 3px;
+    color: #7c3aed; font-weight: 700; text-transform: uppercase;
+    margin-bottom: 14px; opacity: 0.85;
+  }
+  .screen-ornament {
+    font-size: 1.5rem; margin-bottom: 6px;
+    filter: drop-shadow(0 4px 6px rgba(236,72,153,0.25));
+  }
+  .screen-label {
+    font-size: 0.6rem; letter-spacing: 2px;
+    color: #be185d; font-weight: 600; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .couple {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 2.2rem; color: #1e1b4b;
+    font-weight: 700; letter-spacing: -0.5px;
+    line-height: 1;
+    text-shadow: 0 2px 6px rgba(30,27,75,0.08);
+  }
+  .amp {
+    color: #ec4899; font-size: 1.4rem; font-style: italic;
+    margin: 8px 0; font-family: 'Georgia', serif;
+  }
+  .divider {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; margin: 18px auto;
+  }
+  .divider::before, .divider::after {
+    content: ''; width: 40px; height: 1.5px;
+    background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+  }
+  .divider span { color: #8b5cf6; font-size: 0.7rem; }
+  .date-box {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,0.65);
+    border: 1px solid rgba(139,92,246,0.2);
+    padding: 10px 16px; border-radius: 14px;
+    margin: 4px auto 0;
+    backdrop-filter: blur(8px);
+  }
+  .date-item { text-align: center; }
+  .date-item .num {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem; font-weight: 700; color: #1e1b4b;
+    line-height: 1;
+  }
+  .date-item .lbl {
+    font-size: 0.55rem; color: #8b5cf6; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+  .date-sep { color: #cbd5e1; font-size: 1.2rem; }
+
+  .countdown {
+    display: flex; justify-content: center; gap: 8px;
+    margin-top: 22px;
+  }
+  .cd-item {
+    background: rgba(30,27,75,0.9); color: #fff;
+    padding: 8px 6px; border-radius: 10px;
+    min-width: 42px; text-align: center;
+    box-shadow: 0 4px 10px rgba(30,27,75,0.25);
+  }
+  .cd-item .n { font-size: 1rem; font-weight: 800; line-height: 1; }
+  .cd-item .l { font-size: 0.5rem; opacity: 0.7; letter-spacing: 0.5px; margin-top: 2px; }
+
+  .btn-invite {
+    margin-top: auto; padding: 14px 24px; border-radius: 50px;
+    background: linear-gradient(135deg, #8b5cf6, #ec4899);
+    color: #fff; font-size: 0.85rem; font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 10px 20px -5px rgba(236,72,153,0.5);
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    animation: btnShine 3s ease-in-out infinite;
+  }
+  @keyframes btnShine {
+    0%,100% { box-shadow: 0 10px 20px -5px rgba(236,72,153,0.5); }
+    50% { box-shadow: 0 15px 30px -5px rgba(236,72,153,0.8); }
+  }
+
+  /* Floating cards */
+  .floating-card {
+    position: absolute; background: #fff; padding: 12px 16px;
+    border-radius: 16px; box-shadow: 0 15px 35px -10px rgba(30,27,75,0.25);
+    display: flex; align-items: center; gap: 10px; font-size: 0.82rem;
+    font-weight: 600; color: var(--dark); z-index: 4;
+    border: 1px solid rgba(255,255,255,0.8);
+  }
+  .floating-card .icon {
+    width: 34px; height: 34px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .fc-1 { top: 40px; left: -40px; animation: float 3.5s ease-in-out infinite; }
+  .fc-2 { bottom: 120px; right: -50px; animation: float 3.5s ease-in-out infinite 1.5s; }
+  .fc-3 { bottom: 30px; left: -30px; animation: float 3.5s ease-in-out infinite 0.8s; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+
+  /* ===== SECTIONS ===== */
+  section { padding: 90px 0; }
+  .section-head { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+  .section-head .label {
+    color: var(--primary); font-weight: 700; font-size: 0.85rem;
+    text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;
+    display: block;
+  }
+  .section-head h2 {
+    font-size: 2.2rem; font-weight: 800; color: var(--dark);
+    margin-bottom: 16px; letter-spacing: -0.02em;
+  }
+  .section-head p { color: var(--gray); font-size: 1.05rem; }
+
+  /* ===== FEATURES ===== */
+  .features-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  }
+  .feature-card {
+    background: #fff; border: 1px solid var(--border);
+    padding: 32px; border-radius: 20px; transition: all 0.3s;
+  }
+  .feature-card:hover {
+    transform: translateY(-6px); box-shadow: 0 20px 40px rgba(139,92,246,0.12);
+    border-color: rgba(139,92,246,0.3);
+  }
+  .feature-icon {
+    width: 56px; height: 56px; border-radius: 16px;
+    background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(236,72,153,0.12));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; margin-bottom: 20px;
+  }
+  .feature-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+  .feature-card p { color: var(--gray); font-size: 0.95rem; }
+
+  /* ===== PRICING ===== */
+  .pricing { background: var(--light); }
+  .pricing-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
+    max-width: 900px; margin: 0 auto;
+  }
+  .price-card {
+    background: #fff; border-radius: 24px; padding: 40px 32px;
+    border: 2px solid var(--border); position: relative;
+    transition: all 0.3s;
+  }
+  .price-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px rgba(0,0,0,0.08); }
+  .price-card.featured {
+    border-color: var(--primary);
+    box-shadow: 0 25px 50px rgba(139,92,246,0.18);
+  }
+  .price-card.featured::before {
+    content: 'PALING POPULER'; position: absolute; top: -14px; left: 50%;
+    transform: translateX(-50%); background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff; padding: 6px 20px; border-radius: 50px;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+    white-space: nowrap;
+  }
+  .price-card h3 { font-size: 1.3rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+  .price-card .desc { color: var(--gray); font-size: 0.9rem; margin-bottom: 24px; min-height: 42px; }
+  .price { display: flex; align-items: baseline; gap: 6px; margin-bottom: 28px; }
+  .price .currency { font-size: 1.1rem; font-weight: 700; color: var(--dark); }
+  .price .amount { font-size: 2.8rem; font-weight: 800; color: var(--dark); letter-spacing: -0.03em; }
+  .price-features { list-style: none; margin-bottom: 32px; }
+  .price-features li {
+    padding: 10px 0; display: flex; align-items: flex-start; gap: 12px;
+    font-size: 0.95rem; color: var(--text); border-bottom: 1px solid var(--border);
+  }
+  .price-features li:last-child { border-bottom: none; }
+  .check {
+    width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(16,185,129,0.12); color: var(--success);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700; margin-top: 2px;
+  }
+  .price-card .btn { width: 100%; text-align: center; }
+
+  /* ===== FLOW ===== */
+  .flow-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  }
+  .flow-card {
+    text-align: center; padding: 32px 20px;
+    background: #fff; border-radius: 20px;
+    border: 1px solid var(--border); position: relative;
+    transition: all 0.3s;
+  }
+  .flow-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(139,92,246,0.12); }
+  .flow-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff; font-size: 1.4rem; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; box-shadow: 0 8px 20px rgba(139,92,246,0.3);
+  }
+  .flow-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+  .flow-card p { color: var(--gray); font-size: 0.9rem; }
+
+  /* ===== TESTIMONIALS ===== */
+  .testi { background: var(--light); }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .testi-card {
+    background: #fff; padding: 32px; border-radius: 20px;
+    border: 1px solid var(--border);
+  }
+  .stars { color: #fbbf24; margin-bottom: 16px; font-size: 1.1rem; letter-spacing: 2px; }
+  .testi-card p { color: var(--text); font-size: 0.95rem; margin-bottom: 20px; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1rem;
+  }
+  .testi-author h4 { font-size: 0.95rem; font-weight: 700; color: var(--dark); }
+  .testi-author span { font-size: 0.8rem; color: var(--gray); }
+
+  /* ===== FAQ ===== */
+  .faq-list { max-width: 800px; margin: 0 auto; }
+  .faq-item {
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 16px; margin-bottom: 16px; overflow: hidden;
+    transition: all 0.3s;
+  }
+  .faq-item.open { border-color: var(--primary); box-shadow: 0 10px 30px rgba(139,92,246,0.1); }
+  .faq-q {
+    padding: 22px 26px; font-weight: 600; color: var(--dark);
+    cursor: pointer; display: flex; justify-content: space-between;
+    align-items: center; gap: 16px; font-size: 1rem;
+  }
+  .faq-q .icon {
+    width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+    background: var(--light); color: var(--primary);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.3s; font-size: 1rem;
+  }
+  .faq-item.open .faq-q .icon { transform: rotate(45deg); background: var(--primary); color: #fff; }
+  .faq-a {
+    max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+    padding: 0 26px; color: var(--gray); font-size: 0.95rem;
+  }
+  .faq-item.open .faq-a { max-height: 300px; padding-bottom: 22px; }
+
+  /* ===== CTA ===== */
+  .cta {
+    background: linear-gradient(135deg, var(--dark), #4c1d95);
+    color: #fff; text-align: center; border-radius: 32px;
+    padding: 70px 40px; margin: 0 24px; max-width: 1152px;
+    margin-left: auto; margin-right: auto; position: relative;
+    overflow: hidden;
+  }
+  .cta::before {
+    content: ''; position: absolute; top: -50%; right: -10%;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(236,72,153,0.3), transparent 70%);
+  }
+  .cta h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; position: relative; }
+  .cta p { font-size: 1.05rem; opacity: 0.85; margin-bottom: 32px; max-width: 550px; margin-left: auto; margin-right: auto; position: relative; }
+  .cta .btn { position: relative; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--dark); color: #cbd5e1;
+    padding: 60px 0 30px; margin-top: 90px;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+    margin-bottom: 40px;
+  }
+  .footer-brand .logo { color: #fff; margin-bottom: 16px; }
+  .footer-brand p { font-size: 0.9rem; opacity: 0.75; max-width: 300px; }
+  .footer-col h4 { color: #fff; font-size: 1rem; margin-bottom: 20px; font-weight: 700; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 12px; }
+  .footer-col a {
+    color: #cbd5e1; text-decoration: none; font-size: 0.9rem;
+    transition: color 0.2s; cursor: pointer;
+  }
+  .footer-col a:hover { color: var(--secondary); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px; text-align: center;
+    font-size: 0.85rem; opacity: 0.7;
+  }
+
+  /* ===== FLOATING WA ===== */
+  .wa-float {
+    position: fixed; bottom: 30px; right: 30px; z-index: 999;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: #25D366; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; box-shadow: 0 10px 30px rgba(37,211,102,0.5);
+    text-decoration: none; transition: all 0.3s; cursor: pointer;
+    animation: float 3s ease-in-out infinite;
+  }
+  .wa-float:hover { transform: scale(1.1); }
+
+  /* ===== MODAL BREFING ===== */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(15,23,42,0.7);
+    backdrop-filter: blur(4px); z-index: 2000;
+    display: none; align-items: center; justify-content: center;
+    padding: 20px; overflow-y: auto;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal {
+    background: #fff; border-radius: 24px; max-width: 560px;
+    width: 100%; padding: 36px; position: relative;
+    max-height: 92vh; overflow-y: auto;
+    animation: modalIn 0.3s ease;
+  }
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .modal h3 { font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+  .modal .sub { color: var(--gray); font-size: 0.9rem; margin-bottom: 24px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label {
+    display: block; font-weight: 600; font-size: 0.88rem;
+    color: var(--dark); margin-bottom: 8px;
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 12px 16px; border: 1.5px solid var(--border);
+    border-radius: 12px; font-size: 0.95rem; font-family: inherit;
+    transition: all 0.2s; background: #fff; color: var(--text);
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none; border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(139,92,246,0.1);
+  }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .modal-close {
+    position: absolute; top: 20px; right: 20px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--light); border: none; cursor: pointer;
+    font-size: 1.2rem; color: var(--gray);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .modal-close:hover { background: var(--danger); color: #fff; }
+
+  /* ===== ADMIN PANEL ===== */
+  .admin-bar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: var(--dark); color: #fff; z-index: 3000;
+    display: none; padding: 12px 24px;
+    justify-content: space-between; align-items: center;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+    font-size: 0.9rem;
+  }
+  .admin-bar.active { display: flex; }
+  .admin-bar .status {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .admin-bar .status .dot {
+    width: 10px; height: 10px; border-radius: 50%; background: var(--success);
+    animation: pulse 1.5s infinite;
+  }
+  .admin-bar .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .admin-btn {
+    padding: 8px 16px; border-radius: 8px; border: none;
+    cursor: pointer; font-size: 0.85rem; font-weight: 600;
+    font-family: inherit; transition: all 0.2s;
+  }
+  .admin-btn.save { background: var(--success); color: #fff; }
+  .admin-btn.save:hover { background: #059669; }
+  .admin-btn.reset { background: rgba(255,255,255,0.15); color: #fff; }
+  .admin-btn.reset:hover { background: rgba(255,255,255,0.25); }
+  .admin-btn.exit { background: var(--danger); color: #fff; }
+  .admin-btn.exit:hover { background: #dc2626; }
+
+  .editable-active {
+    outline: 2px dashed var(--primary);
+    outline-offset: 3px; border-radius: 4px;
+    cursor: text; transition: all 0.2s;
+  }
+  .editable-active:hover { background: rgba(139,92,246,0.06); }
+  .editable-active:focus {
+    outline: 2px solid var(--primary);
+    background: rgba(139,92,246,0.08);
+  }
+
+  /* ===== LOGIN ADMIN ===== */
+  .login-modal .modal { max-width: 420px; }
+  .login-modal .lock-icon {
+    width: 64px; height: 64px; border-radius: 20px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; margin: 0 auto 20px; color: #fff;
+  }
+  .login-modal h3 { text-align: center; }
+  .login-modal .sub { text-align: center; }
+  .error-msg {
+    color: var(--danger); font-size: 0.85rem; margin-top: 8px;
+    display: none;
+  }
+  .error-msg.show { display: block; }
+
+  /* ===== TOAST ===== */
+  .toast {
+    position: fixed; top: 24px; right: 24px; z-index: 5000;
+    background: var(--dark); color: #fff; padding: 16px 24px;
+    border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    font-size: 0.9rem; font-weight: 500;
+    transform: translateX(400px); transition: transform 0.3s;
+    display: flex; align-items: center; gap: 10px;
+    max-width: 340px;
+  }
+  .toast.show { transform: translateX(0); }
+  .toast.success { background: var(--success); }
+  .toast.error { background: var(--danger); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 968px) {
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .hero p { margin-left: auto; margin-right: auto; }
+    .hero-cta, .hero-stats { justify-content: center; }
+    .hero-visual { margin-top: 40px; min-height: 560px; }
+    .features-grid, .testi-grid { grid-template-columns: 1fr 1fr; }
+    .flow-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .nav-links.mobile-open {
+      display: flex; flex-direction: column; position: absolute;
+      top: 100%; left: 0; right: 0; background: #fff;
+      padding: 24px; gap: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-bottom: 1px solid var(--border);
+    }
+    .menu-toggle { display: block; }
+    .fc-1 { left: -10px; }
+    .fc-2 { right: -10px; }
+    .fc-3 { left: -10px; }
+  }
+  @media (max-width: 640px) {
+    .hero { padding: 120px 0 60px; }
+    .hero h1 { font-size: 2rem; }
+    .section-head h2 { font-size: 1.6rem; }
+    .features-grid, .testi-grid, .pricing-grid, .flow-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .cta { padding: 50px 24px; margin: 0 16px; }
+    .cta h2 { font-size: 1.6rem; }
+    .hero-stats { gap: 24px; }
+    .price .amount { font-size: 2.2rem; }
+    .admin-bar { flex-direction: column; gap: 10px; }
+    .admin-bar .actions { width: 100%; justify-content: center; }
+    .phone-mockup { width: 260px; height: 530px; }
+    .couple { font-size: 1.9rem; }
+    .hero-visual { min-height: 500px; }
+    .fc-3 { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <div class="logo" data-nav="beranda">
+      <div class="logo-icon">✉</div>
+      <span data-editable="brandName">UndanganKu</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a data-nav="beranda">Beranda</a></li>
+      <li><a data-nav="keunggulan">Keunggulan</a></li>
+      <li><a data-nav="harga">Harga</a></li>
+      <li><a data-nav="proses">Proses</a></li>
+      <li><a data-nav="faq">FAQ</a></li>
+      <li><button class="btn btn-primary" data-action="briefing">Pesan Sekarang</button></li>
+    </ul>
+    <button class="menu-toggle" data-action="menu">☰</button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="beranda">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span data-editable="heroBadge">Terima order hari ini • Fast respon</span>
+      </div>
+      <h1>
+        <span data-editable="heroTitle1">Undangan Digital</span><br>
+        <span data-editable="heroTitle2">Elegan & Modern</span>
+      </h1>
+      <p data-editable="heroDesc">Buat momen spesial Anda semakin berkesan dengan undangan digital yang profesional, elegan, dan mudah dibagikan. Proses cepat, revisi sesuai kebutuhan, harga terjangkau.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" data-action="briefing">Mulai Brefing Sekarang →</button>
+        <button class="btn btn-outline" data-nav="harga">Lihat Harga</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <h3 data-editable="stat1Num">500+</h3>
+          <p data-editable="stat1Label">Undangan Dibuat</p>
+        </div>
+        <div class="stat">
+          <h3 data-editable="stat2Num">4.9/5</h3>
+          <p data-editable="stat2Label">Rating Pelanggan</p>
+        </div>
+        <div class="stat">
+          <h3 data-editable="stat3Num">24 Jam</h3>
+          <p data-editable="stat3Label">Pengerjaan Cepat</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== HERO VISUAL: NEW PHONE ===== -->
+    <div class="hero-visual">
+      <div class="phone-wrap">
+        <div class="phone-glow"></div>
+        <div class="phone-mockup">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="screen-blob blob-1"></div>
+            <div class="screen-blob blob-2"></div>
+            <div class="screen-blob blob-3"></div>
+
+            <div class="screen-content">
+              <div class="screen-top">The Wedding Of</div>
+              <div class="screen-ornament">🌸</div>
+              <div class="screen-label">Kami Akan Menikah</div>
+
+              <div class="couple" data-editable="mockName1">Rizky</div>
+              <div class="amp">&</div>
+              <div class="couple" data-editable="mockName2">Aulia</div>
+
+              <div class="divider"><span>❦</span></div>
+
+              <div class="date-box">
+                <div class="date-item">
+                  <div class="num" data-editable="mockDay">12</div>
+                  <div class="lbl">Des</div>
+                </div>
+                <div class="date-sep">|</div>
+                <div class="date-item">
+                  <div class="num">2025</div>
+                  <div class="lbl">Tahun</div>
+                </div>
+              </div>
+
+              <div class="countdown">
+                <div class="cd-item"><div class="n">24</div><div class="l">HARI</div></div>
+                <div class="cd-item"><div class="n">08</div><div class="l">JAM</div></div>
+                <div class="cd-item"><div class="n">32</div><div class="l">MNT</div></div>
+                <div class="cd-item"><div class="n">15</div><div class="l">DTK</div></div>
+              </div>
+
+              <div class="btn-invite" data-editable="mockBtn">💌 Buka Undangan</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="floating-card fc-1">
+          <div class="icon" style="background:rgba(16,185,129,0.15);color:#10b981">✓</div>
+          <span>Revisi Friendly</span>
+        </div>
+        <div class="floating-card fc-2">
+          <div class="icon" style="background:rgba(139,92,246,0.15);color:#8b5cf6">⚡</div>
+          <span>Proses Cepat</span>
+        </div>
+        <div class="floating-card fc-3">
+          <div class="icon" style="background:rgba(236,72,153,0.15);color:#ec4899">💎</div>
+          <span>Desain Premium</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section id="keunggulan">
+  <div class="container">
+    <div class="section-head">
+      <span class="label" data-editable="featLabel">Keunggulan Kami</span>
+      <h2 data-editable="featTitle">Kenapa Pilih Undangan Kami?</h2>
+      <p data-editable="featDesc">Kami memberikan pelayanan terbaik dengan hasil yang profesional dan memuaskan.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3 data-editable="feat1Title">Desain Custom</h3>
+        <p data-editable="feat1Desc">Desain undangan disesuaikan dengan tema, warna, dan gaya yang Anda inginkan. Bisa request sesuai selera.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3 data-editable="feat2Title">Proses Cepat</h3>
+        <p data-editable="feat2Desc">Pengerjaan maksimal 1x24 jam setelah brefing selesai. Undangan langsung bisa dibagikan via WhatsApp.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3 data-editable="feat3Title">Responsive</h3>
+        <p data-editable="feat3Desc">Tampilan undangan otomatis menyesuaikan di semua perangkat: HP, tablet, dan desktop.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3 data-editable="feat4Title">Revisi Fleksibel</h3>
+        <p data-editable="feat4Desc">Tersedia paket dengan revisi terbatas maupun bebas revisi. Pilih sesuai kebutuhan Anda.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎵</div>
+        <h3 data-editable="feat5Title">Musik & Galeri</h3>
+        <p data-editable="feat5Desc">Dilengkapi background music, galeri foto prewedding, dan fitur lengkap lainnya.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h3 data-editable="feat6Title">Brefing Mudah</h3>
+        <p data-editable="feat6Desc">Cukup isi form brefing, tim kami akan langsung menghubungi dan memproses undangan Anda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="pricing" id="harga">
+  <div class="container">
+    <div class="section-head">
+      <span class="label" data-editable="priceLabel">Paket Harga</span>
+      <h2 data-editable="priceTitle">Pilih Paket Sesuai Kebutuhan</h2>
+      <p data-editable="priceDesc">Harga transparan, kualitas terjamin. Tidak ada biaya tersembunyi.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3 data-editable="plan1Name">Paket Hemat</h3>
+        <p class="desc" data-editable="plan1Desc">Cocok untuk yang ingin undangan digital simpel dan cepat.</p>
+        <div class="price">
+          <span class="currency">Rp</span>
+          <span class="amount" data-editable="plan1Price">25.000</span>
+        </div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> <span data-editable="plan1F1">Desain undangan digital</span></li>
+          <li><span class="check">✓</span> <span data-editable="plan1F2">2x revisi</span></li>
+          <li><span class="check">✓</span> <span data-editable="plan1F3">Link undangan aktif</span></li>
+          <li><span class="check">✓</span> <span data-editable="plan1F4">Bisa dibagikan via WhatsApp</span></li>
+          <li><span class="check">✓</span> <span data-editable="plan1F5">Pengerjaan 1x24 jam</span></li>
+        </ul>
+        <button class="btn btn-outline" data-action="briefing" data-paket="Paket Hemat - Rp 25.000">Pesan Paket Hemat</button>
+      </div>
+      <div class="price-card featured">
+        <h3 data-editable="plan2Name">Paket Premium</h3>
+        <p class="desc" data-editable="plan2Desc">Untuk yang ingin bebas revisi tanpa batas sampai puas.</p>
+        <div class="price">
+          <span class="currency">Rp</span>
+          <span class="amount" data-editable="plan2Price">90.000</span>
+        </div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> <span data-editable="plan2F1">Semua fitur Paket Hemat</span></li>
+          <li><span class="check">✓</span> <span data-editable="plan2F2">Bebas revisi (unlimited)</span></li>
+          <li><span class="check">✓</span> <span data-editable="plan2F3">Desain lebih custom & eksklusif</span></li>
+          <li><span class="check">✓</span> <span data-editable="plan2F4">Galeri foto + musik</span></li>
+          <li><span class="check">✓</span> <span data-editable="plan2F5">Priority support</span></li>
+          <li><span class="check">✓</span> <span data-editable="plan2F6">Pengerjaan 1x24 jam</span></li>
+        </ul>
+        <button class="btn btn-primary" data-action="briefing" data-paket="Paket Premium - Rp 90.000">Pesan Paket Premium</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROSES ===== -->
+<section id="proses">
+  <div class="container">
+    <div class="section-head">
+      <span class="label" data-editable="flowLabel">Alur Pemesanan</span>
+      <h2 data-editable="flowTitle">Proses Mudah & Cepat</h2>
+      <p data-editable="flowDesc">Hanya butuh beberapa langkah untuk mendapatkan undangan digital impian Anda.</p>
+    </div>
+    <div class="flow-grid">
+      <div class="flow-card">
+        <div class="flow-num">1</div>
+        <h3 data-editable="flow1Title">Brefing</h3>
+        <p data-editable="flow1Desc">Isi form brefing dengan data lengkap: nama, tanggal, lokasi, dan tema yang diinginkan.</p>
+      </div>
+      <div class="flow-card">
+        <div class="flow-num">2</div>
+        <h3 data-editable="flow2Title">Konfirmasi & Bayar</h3>
+        <p data-editable="flow2Desc">Tim kami konfirmasi pesanan, lalu Anda melakukan pembayaran sesuai paket.</p>
+      </div>
+      <div class="flow-card">
+        <div class="flow-num">3</div>
+        <h3 data-editable="flow3Title">Proses Desain</h3>
+        <p data-editable="flow3Desc">Undangan dikerjakan maksimal 1x24 jam dan dikirim preview untuk dicek.</p>
+      </div>
+      <div class="flow-card">
+        <div class="flow-num">4</div>
+        <h3 data-editable="flow4Title">Revisi & Jadi</h3>
+        <p data-editable="flow4Desc">Revisi sesuai paket, lalu undangan siap dibagikan via link.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testi">
+  <div class="container">
+    <div class="section-head">
+      <span class="label" data-editable="testiLabel">Testimoni</span>
+      <h2 data-editable="testiTitle">Apa Kata Pelanggan Kami</h2>
+      <p data-editable="testiDesc">Kepuasan pelanggan adalah prioritas utama kami.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p data-editable="testi1Text">"Hasilnya bagus banget, desainnya elegan dan sesuai request. Prosesnya cepat, revisi juga dilayani dengan ramah. Recommended!"</p>
+        <div class="testi-author">
+          <div class="avatar">R</div>
+          <div>
+            <h4 data-editable="testi1Name">Rina & Dedi</h4>
+            <span data-editable="testi1Role">Pengantin, Bandung</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p data-editable="testi2Text">"Awalnya brefing dulu, dijelaskan detail banget. Hasil undangan melebihi ekspektasi. Harga 90rb bebas revisi worth it banget!"</p>
+        <div class="testi-author">
+          <div class="avatar">S</div>
+          <div>
+            <h4 data-editable="testi2Name">Sari & Budi</h4>
+            <span data-editable="testi2Role">Pengantin, Jakarta</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p data-editable="testi3Text">"Pelayanannya profesional, komunikatif. Undangan jadi tepat waktu dan banyak yang memuji. Terima kasih!"</p>
+        <div class="testi-author">
+          <div class="avatar">A</div>
+          <div>
+            <h4 data-editable="testi3Name">Andi & Maya</h4>
+            <span data-editable="testi3Role">Pengantin, Surabaya</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="label" data-editable="faqLabel">FAQ</span>
+      <h2 data-editable="faqTitle">Pertanyaan yang Sering Diajukan</h2>
+      <p data-editable="faqDesc">Masih ada pertanyaan? Hubungi kami langsung via WhatsApp.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" data-action="faq">
+          <span data-editable="faq1Q">Apa itu brefing dan kenapa harus dilakukan?</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-a"><p data-editable="faq1A">Brefing adalah proses pengumpulan data dan kebutuhan Anda sebelum pembuatan undangan. Ini penting agar hasil undangan sesuai keinginan, mulai dari nama, tanggal, lokasi, tema, warna, hingga fitur yang diinginkan.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-action="faq">
+          <span data-editable="faq2Q">Apa perbedaan Paket Hemat dan Paket Premium?</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-a"><p data-editable="faq2A">Paket Hemat (Rp 25.000) mendapatkan 2x revisi, cocok untuk kebutuhan simpel. Paket Premium (Rp 90.000) bebas revisi tanpa batas sampai Anda puas, plus desain lebih custom, galeri foto, musik, dan priority support.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-action="faq">
+          <span data-editable="faq3Q">Berapa lama proses pengerjaannya?</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-a"><p data-editable="faq3A">Setelah brefing selesai dan pembayaran dikonfirmasi, pengerjaan maksimal 1x24 jam. Anda akan menerima preview untuk dicek sebelum undangan final dibagikan.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-action="faq">
+          <span data-editable="faq4Q">Bagaimana cara pembayarannya?</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-a"><p data-editable="faq4A">Pembayaran bisa melalui transfer bank, e-wallet (Dana, OVO, GoPay, ShopeePay), atau QRIS. Detail pembayaran akan dikirim setelah brefing dikonfirmasi.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-action="faq">
+          <span data-editable="faq5Q">Apakah undangan bisa dibagikan ke banyak orang?</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-a"><p data-editable="faq5A">Ya! Undangan digital berbentuk link yang bisa dibagikan ke siapa saja via WhatsApp, Instagram, Facebook, atau media lainnya. Bisa juga dibuatkan nama tamu khusus jika diinginkan.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section style="padding:0">
+  <div class="cta">
+    <h2 data-editable="ctaTitle">Siap Membuat Undangan Digital Anda?</h2>
+    <p data-editable="ctaDesc">Mulai dengan brefing sekarang. Tim kami siap membantu mewujudkan undangan impian Anda.</p>
+    <button class="btn btn-white" data-action="briefing">Mulai Brefing Sekarang →</button>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">✉</div>
+          <span data-editable="footerBrand">UndanganKu</span>
+        </div>
+        <p data-editable="footerDesc">Jasa pembuatan undangan digital profesional, elegan, dan terjangkau. Melayani seluruh Indonesia.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a data-nav="beranda">Beranda</a></li>
+          <li><a data-nav="keunggulan">Keunggulan</a></li>
+          <li><a data-nav="harga">Harga</a></li>
+          <li><a data-nav="proses">Proses</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a data-action="briefing">Pesan Undangan</a></li>
+          <li><a data-nav="faq">FAQ</a></li>
+          <li><a data-nav="harga">Paket Harga</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <ul>
+          <li><a data-editable="footerWa" data-wa-link>📱 082254388144</a></li>
+          <li><a data-editable="footerEmail">✉ hello@undanganku.id</a></li>
+          <li><a data-editable="footerIg">📷 @undanganku.id</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> <span data-editable="footerCopyright">UndanganKu</span>. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== FLOATING WA ===== -->
+<a class="wa-float" data-action="briefing" title="Pesan via WhatsApp">💬</a>
+
+<!-- ===== MODAL BREFING ===== -->
+<div class="modal-overlay" id="briefingModal">
+  <div class="modal">
+    <button class="modal-close" data-action="close-briefing">✕</button>
+    <h3>📝 Form Brefing</h3>
+    <p class="sub">Isi data di bawah ini, tim kami akan langsung menghubungi Anda.</p>
+    <form id="briefingForm">
+      <div class="form-group">
+        <label>Nama Lengkap *</label>
+        <input type="text" name="nama" required placeholder="Nama Anda">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>No. WhatsApp *</label>
+          <input type="tel" name="wa" required placeholder="08xxxxxxxxxx">
+        </div>
+        <div class="form-group">
+          <label>Paket *</label>
+          <select name="paket" id="paketSelect" required>
+            <option value="">Pilih paket</option>
+            <option value="Paket Hemat - Rp 25.000">Paket Hemat - Rp 25.000</option>
+            <option value="Paket Premium - Rp 90.000">Paket Premium - Rp 90.000</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nama Pria *</label>
+          <input type="text" name="pria" required placeholder="Nama mempelai pria">
+        </div>
+        <div class="form-group">
+          <label>Nama Wanita *</label>
+          <input type="text" name="wanita" required placeholder="Nama mempelai wanita">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Tanggal Acara *</label>
+        <input type="date" name="tanggal" required>
+      </div>
+      <div class="form-group">
+        <label>Lokasi Acara *</label>
+        <input type="text" name="lokasi" required placeholder="Nama tempat / alamat acara">
+      </div>
+      <div class="form-group">
+        <label>Tema / Warna yang Diinginkan</label>
+        <input type="text" name="tema" placeholder="Contoh: floral pink, minimalis gold, dll">
+      </div>
+      <div class="form-group">
+        <label>Catatan Tambahan</label>
+        <textarea name="catatan" placeholder="Request khusus, fitur tambahan, dll"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%">Kirim Brefing via WhatsApp →</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===== LOGIN ADMIN ===== -->
+<div class="modal-overlay login-modal" id="loginModal">
+  <div class="modal">
+    <button class="modal-close" data-action="close-login">✕</button>
+    <div class="lock-icon">🔐</div>
+    <h3>Login Admin</h3>
+    <p class="sub">Masukkan password untuk mengakses mode admin.</p>
+    <form id="loginForm">
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="adminPass" required placeholder="Masukkan password admin">
+      </div>
+      <p class="error-msg" id="loginError">Password salah! Coba lagi.</p>
+      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:8px">Masuk Mode Admin</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===== ADMIN BAR ===== -->
+<div class="admin-bar" id="adminBar">
+  <div class="status">
+    <span class="dot"></span>
+    <span id="adminStatusText">Mode Admin Aktif — Klik teks mana pun untuk mengedit</span>
+  </div>
+  <div class="actions">
+    <button class="admin-btn save" id="btnSave">💾 Simpan</button>
+    <button class="admin-btn reset" id="btnReset">↺ Reset</button>
+    <button class="admin-btn exit" id="btnExit">Keluar</button>
+  </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast"></div>
+
+<script type="module">
+  // ============================================
+  // FIREBASE SDK
+  // ============================================
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-analytics.js";
+  import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDmAEREMEbxAFFBXGzwC25C6_Fty_3x7h0",
+    authDomain: "manzcodewebsite.firebaseapp.com",
+    projectId: "manzcodewebsite",
+    storageBucket: "manzcodewebsite.firebasestorage.app",
+    messagingSenderId: "645735217075",
+    appId: "1:645735217075:web:0aca15eff4dde29fa4bdc6",
+    measurementId: "G-844YCJVZ7F"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getFirestore(app);
+
+  const CONTENT_DOC = doc(db, 'website', 'content');
+  const ADMIN_PASSWORD = "admin123"; // Ganti sesuai keinginan
+  const LOCAL_KEY = 'undanganku_content_v1';
+
+  let adminMode = false;
+  let currentContent = {};
+  let savedContent = {};
+  let hasUnsavedChanges = false;
+
+  // ============================================
+  // UTILS
+  // ============================================
+  function scrollToId(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.pageYOffset - 80;
+    window.scrollTo({ top, behavior: 'smooth' });
+    document.getElementById('navLinks')?.classList.remove('mobile-open');
+  }
+
+  function toggleMenu() {
+    document.getElementById('navLinks')?.classList.toggle('mobile-open');
+  }
+
+  function toggleFaq(el) {
+    el.parentElement.classList.toggle('open');
+  }
+
+  function showToast(msg, type = '') {
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.className = 'toast ' + type;
+    t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => t.classList.remove('show'), 3200);
+  }
+
+  // Ambil nomor WA bersih dari elemen footerWa
+  function getWANumber() {
+    const el = document.querySelector('[data-editable="footerWa"]');
+    if (!el) return '6282254388144';
+    let raw = el.textContent.replace(/[^\d]/g, '');
+    // jika mulai dengan 0, ganti jadi 62
+    if (raw.startsWith('0')) raw = '62' + raw.slice(1);
+    if (raw.startsWith('8')) raw = '62' + raw;
+    return raw || '6282254388144';
+  }
+
+  // ============================================
+  // EVENT DELEGATION - Supaya navbar tetap bisa diklik
+  // walau ada contenteditable
+  // ============================================
+  document.addEventListener('click', (e) => {
+    // Skip kalau sedang admin mode & target adalah editable
+    const editable = e.target.closest('[data-editable]');
+    if (editable && adminMode && (editable.isContentEditable || editable.getAttribute('contenteditable') === 'true')) {
+      // Klik di editable hanya untuk edit, tidak trigger action
+      return;
+    }
+
+    // Nav link
+    const nav = e.target.closest('[data-nav]');
+    if (nav) {
+      e.preventDefault();
+      scrollToId(nav.getAttribute('data-nav'));
+      return;
+    }
+
+    // Action
+    const action = e.target.closest('[data-action]');
+    if (action) {
+      e.preventDefault();
+      const act = action.getAttribute('data-action');
+      if (act === 'briefing') {
+        openBriefing(action.getAttribute('data-paket') || '');
+      } else if (act === 'faq') {
+        toggleFaq(action);
+      } else if (act === 'menu') {
+        toggleMenu();
+      } else if (act === 'close-briefing') {
+        closeBriefing();
+      } else if (act === 'close-login') {
+        closeLogin();
+      }
+      return;
+    }
+
+    // WA link di footer
+    const waLink = e.target.closest('[data-wa-link]');
+    if (waLink && !adminMode) {
+      e.preventDefault();
+      openBriefing();
+      return;
+    }
+  });
+
+  // ============================================
+  // NAVBAR SCROLL
+  // ============================================
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // ============================================
+  // BREFING
+  // ============================================
+  function openBriefing(paket = '') {
+    document.getElementById('briefingModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (paket) {
+      const sel = document.getElementById('paketSelect');
+      if (sel) sel.value = paket;
+    }
+  }
+
+  function closeBriefing() {
+    document.getElementById('briefingModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('briefingForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = e.target;
+    const waNumber = getWANumber();
+    const text = `Halo, saya ingin pesan undangan digital.%0A%0A*BREFING UNDANGAN*%0ANama: ${f.nama.value}%0AWA: ${f.wa.value}%0APaket: ${f.paket.value}%0AMempelai Pria: ${f.pria.value}%0AMempelai Wanita: ${f.wanita.value}%0ATanggal: ${f.tanggal.value}%0ALokasi: ${f.lokasi.value}%0ATema: ${f.tema.value || '-'}%0ACatatan: ${f.catatan.value || '-'}`;
+    window.open(`https://wa.me/${waNumber}?text=${text}`, '_blank');
+    showToast('Brefing terkirim!', 'success');
+    closeBriefing();
+    f.reset();
+  });
+
+  // ============================================
+  // ADMIN LOGIN
+  // ============================================
+  function checkAdminHash() {
+    if (window.location.hash === '#admin' && !adminMode) {
+      document.getElementById('loginModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('loginForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (document.getElementById('adminPass').value === ADMIN_PASSWORD) {
+      document.getElementById('loginModal').classList.remove('active');
+      document.body.style.overflow = '';
+      enableAdmin();
+      showToast('Login berhasil! Mode admin aktif.', 'success');
+    } else {
+      document.getElementById('loginError').classList.add('show');
+      document.getElementById('adminPass').value = '';
+    }
+  });
+
+  function closeLogin() {
+    document.getElementById('loginModal').classList.remove('active');
+    document.body.style.overflow = '';
+    if (window.location.hash === '#admin') {
+      history.replaceState(null, '', window.location.pathname);
+    }
+  }
+
+  // ============================================
+  // ENABLE / DISABLE ADMIN
+  // ============================================
+  function enableAdmin() {
+    adminMode = true;
+    document.getElementById('adminBar').classList.add('active');
+    document.body.style.paddingBottom = '80px';
+    document.querySelectorAll('[data-editable]').forEach(el => {
+      el.setAttribute('contenteditable', 'true');
+      el.classList.add('editable-active');
+      el.addEventListener('input', onEdit);
+      el.addEventListener('blur', onEdit);
+    });
+    updateAdminBarStatus();
+  }
+
+  function onEdit(e) {
+    const key = e.target.getAttribute('data-editable');
+    currentContent[key] = e.target.textContent.trim();
+    hasUnsavedChanges = JSON.stringify(currentContent) !== JSON.stringify(savedContent);
+    updateAdminBarStatus();
+  }
+
+  function updateAdminBarStatus() {
+    const status = document.getElementById('adminStatusText');
+    const dot = document.querySelector('#adminBar .dot');
+    if (!status) return;
+    if (hasUnsavedChanges) {
+      status.innerHTML = '<strong style="color:#fbbf24">⚠ Ada perubahan belum disimpan</strong> — Klik Simpan untuk publish';
+      if (dot) dot.style.background = '#f59e0b';
+    } else {
+      status.textContent = 'Mode Admin Aktif — Klik teks mana pun untuk mengedit';
+      if (dot) dot.style.background = '#10b981';
+    }
+  }
+
+  // ============================================
+  // SAVE / RESET / EXIT
+  // ============================================
+  document.getElementById('btnSave').addEventListener('click', async () => {
+    // Collect semua editable
+    document.querySelectorAll('[data-editable]').forEach(el => {
+      currentContent[el.getAttribute('data-editable')] = el.textContent.trim();
+    });
+
+    // 1) Simpan ke localStorage dulu (biar tidak hilang saat refresh)
+    try {
+      localStorage.setItem(LOCAL_KEY, JSON.stringify(currentContent));
+    } catch (e) {
+      console.warn('localStorage save failed', e);
+    }
+
+    // 2) Coba simpan ke Firestore
+    let firestoreOK = false;
+    try {
+      await setDoc(CONTENT_DOC, currentContent, { merge: true });
+      firestoreOK = true;
+    } catch (err) {
+      console.error('Firestore save error:', err);
+    }
+
+    savedContent = { ...currentContent };
+    hasUnsavedChanges = false;
+    updateAdminBarStatus();
+
+    if (firestoreOK) {
+      showToast('✅ Tersimpan ke server! Pengunjung lain akan melihat perubahan.', 'success');
+    } else {
+      showToast('⚠ Tersimpan lokal. Firestore gagal (cek rules). Cek console.', 'error');
+    }
+  });
+
+  document.getElementById('btnReset').addEventListener('click', async () => {
+    if (!confirm('Reset ke versi terakhir yang tersimpan di server?')) return;
+    try {
+      const snap = await getDoc(CONTENT_DOC);
+      if (snap.exists()) {
+        applyContent(snap.data());
+        currentContent = { ...snap.data() };
+        savedContent = { ...snap.data() };
+      } else {
+        // fallback ke localStorage
+        const local = localStorage.getItem(LOCAL_KEY);
+        if (local) {
+          const data = JSON.parse(local);
+          applyContent(data);
+          currentContent = { ...data };
+          savedContent = { ...data };
+        } else {
+          location.reload();
+          return;
+        }
+      }
+      hasUnsavedChanges = false;
+      updateAdminBarStatus();
+      showToast('↺ Konten direset.', '');
+    } catch (err) {
+      showToast('Gagal reset: ' + err.message, 'error');
+    }
+  });
+
+  document.getElementById('btnExit').addEventListener('click', () => {
+    if (hasUnsavedChanges) {
+      if (!confirm('⚠ Ada perubahan yang BELUM disimpan. Keluar sekarang akan membuang perubahan. Lanjut?')) return;
+    }
+    adminMode = false;
+    hasUnsavedChanges = false;
+    document.getElementById('adminBar').classList.remove('active');
+    document.body.style.paddingBottom = '';
+    document.querySelectorAll('[data-editable]').forEach(el => {
+      el.removeAttribute('contenteditable');
+      el.classList.remove('editable-active');
+      el.removeEventListener('input', onEdit);
+      el.removeEventListener('blur', onEdit);
+    });
+    if (window.location.hash === '#admin') {
+      history.replaceState(null, '', window.location.pathname);
+    }
+    showToast('Keluar dari mode admin.', '');
+  });
+
+  // ============================================
+  // LOAD CONTENT
+  // ============================================
+  function applyContent(data) {
+    Object.keys(data).forEach(key => {
+      const el = document.querySelector(`[data-editable="${key}"]`);
+      if (el) el.textContent = data[key];
+    });
+  }
+
+  function getDefaults() {
+    const defaults = {};
+    document.querySelectorAll('[data-editable]').forEach(el => {
+      defaults[el.getAttribute('data-editable')] = el.textContent.trim();
+    });
+    return defaults;
+  }
+
+  async function loadContent() {
+    const defaults = getDefaults();
+
+    // Prioritas 1: Firestore
+    try {
+      const snap = await getDoc(CONTENT_DOC);
+      if (snap.exists()) {
+        const data = snap.data();
+        applyContent(data);
+        savedContent = { ...defaults, ...data };
+        currentContent = { ...savedContent };
+        return;
+      }
+    } catch (err) {
+      console.warn('Firestore load gagal:', err.message);
+    }
+
+    // Prioritas 2: localStorage
+    try {
+      const local = localStorage.getItem(LOCAL_KEY);
+      if (local) {
+        const data = JSON.parse(local);
+        applyContent(data);
+        savedContent = { ...defaults, ...data };
+        currentContent = { ...savedContent };
+        return;
+      }
+    } catch (e) {
+      console.warn('localStorage load gagal', e);
+    }
+
+    // Fallback: default HTML
+    savedContent = { ...defaults };
+    currentContent = { ...defaults };
+  }
+
+  // ============================================
+  // INIT
+  // ============================================
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  await loadContent();
+  checkAdminHash();
+
+  window.addEventListener('hashchange', checkAdminHash);
+
+  // Close modal on overlay click
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        if (overlay.id === 'briefingModal') closeBriefing();
+        if (overlay.id === 'loginModal') closeLogin();
+      }
+    });
+  });
+
+  // Shortcut Ctrl+Shift+A
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
+      e.preventDefault();
+      if (!adminMode) document.getElementById('loginModal').classList.add('active');
+    }
+  });
+
+  // Warning kalau ada perubahan belum disimpan
+  window.addEventListener('beforeunload', (e) => {
+    if (hasUnsavedChanges) {
+      e.preventDefault();
+      e.returnValue = '';
+    }
+  });
+</script>
+
+<!-- Fallback non-module -->
+<script>
+  // Fallback minimal jika module script gagal load (offline dsb)
+  if (!document.getElementById('year').textContent) {
+    document.getElementById('year').textContent = new Date().getFullYear();
+  }
+</script>
+
+</body>
+</html>
